@@ -1,0 +1,63 @@
+################################################################################
+# Ignore random temporaries and object files
+################################################################################
+*~
+*.o
+*.mk
+*.session
+*.sample
+*.unit
+*.bench
+*.user
+*.vcproj
+*.ncb
+*.sln
+*.suo
+*.exe
+*.desktop
+*.orig
+*_
+*.manifest
+*.res
+*.ilk
+*.pdb
+*.resource.txt
+*.bak
+.DS_Store
+.project
+.cproject
+
+################################################################################
+# Ignore CMake generated files
+################################################################################
+Makefile
+CMakeFiles
+CMakeCache.txt
+CTestTestfile.cmake
+cmake_install.cmake
+Temp
+Testing
+Debug
+Release
+build
+
+################################################################################
+# Ignore local bootstrap file
+################################################################################
+include/nt2/sdk/config/bootstrap.hpp
+
+################################################################################
+# Ignore buidl files and python compilation
+################################################################################
+lib/*
+*tags
+*.pyc
+*#*
+
+################################################################################
+# Ignore doxygen output
+################################################################################
+nt2.xml
+nt2.tag
+nt2.doxywarning.txt
+doc/reference/*
