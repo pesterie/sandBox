@@ -17,6 +17,7 @@
 #include <grammar.hpp>
 #include <expression.hpp>
 #include <evaluate.hpp>
+#include <size.hpp>
 
 /*******************************************************************************
  * std vector terminals 
@@ -49,6 +50,7 @@ struct vector
   : vector_expression< typename boost::proto::nullary_expr<vector_tag, std::vector<T> >::type >
 {
   typedef typename boost::proto::nullary_expr<vector_tag, std::vector<T> >::type expr_type;
+  typedef typename std::vector<T> value_type;
 
   vector(std::size_t size = 0, T const& value = T() )
     : vector_expression< expr_type >(expr_type::make(std::vector<T>(size,value)))
@@ -61,7 +63,9 @@ struct vector
   vector& operator=(Expr const& expr)
   {
     evaluate_ callee;
-    for(int i = 0; i != 5; ++i)
+    size_ get_size;
+    size_t size = get_size(expr);
+    for(int i = 0; i != size; ++i)
       callee(boost::proto::make_expr<boost::proto::tag::assign>(boost::ref(*this), boost::cref(expr)), i);
     return *this;
   }

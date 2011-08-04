@@ -43,11 +43,11 @@ struct    vector_function_cases
 /*******************************************************************************
  * Switch based Grammar - Operator cases
  ******************************************************************************/
-// template<>
-// struct    vector_function_cases
-//         ::case_< boost::proto::tag::negate >
-//         : boost::proto::negate<vector_function>
-// {};
+template<>
+struct    vector_function_cases
+        ::case_< boost::proto::tag::negate >
+        : boost::proto::negate<vector_function>
+{};
 
 
 template<>
@@ -56,24 +56,22 @@ struct    vector_function_cases
         : boost::proto::plus<vector_function,vector_function>
 {};
 
-// NEED Implementation
+template<>
+struct    vector_function_cases
+        ::case_<boost::proto::tag::minus >
+        : boost::proto::minus<vector_function,vector_function>
+{};
 
-// template<>
-// struct    vector_function_cases
-//         ::case_<boost::proto::tag::minus >
-//         : boost::proto::minus<vector_function,vector_function>
-// {};
+template<>
+struct    vector_function_cases
+        ::case_<boost::proto::tag::multiplies>
+        : boost::proto::multiplies<vector_function,vector_function>
+{};
 
-// template<>
-// struct    vector_function_cases
-//         ::case_<boost::proto::tag::multiplies>
-//         : boost::proto::multiplies<vector_function,vector_function>
-// {};
-
-// template<>
-// struct    vector_function_cases
-//         ::case_<boost::proto::tag::divides>
-//         : boost::proto::divides<vector_function,vector_function>
-// {};
+template<>
+struct    vector_function_cases
+        ::case_<boost::proto::tag::divides>
+        : boost::proto::divides<vector_function,vector_function>
+{};
 
 #endif

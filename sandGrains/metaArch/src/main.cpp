@@ -10,7 +10,7 @@
  ******************************************************************************/
 
 #include <iostream>
-#include "terminals.hpp"
+#include <terminals.hpp>
 
 int main()
 {

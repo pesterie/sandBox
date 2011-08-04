@@ -18,43 +18,6 @@
 
 struct  evaluate_;
 
-/*******************************************************************************
- * Evaluator for plus on vector terminals
- * First version but not optimal -> no fusion
- ******************************************************************************/
-// struct plus_vector : boost::proto::callable
-// {
-//   template<typename Sig> struct result;
-
-//   template<typename This,typename Left,typename Right>
-//   struct result<This(Left,Right)>
-//   {
-//     BOOST_STATIC_ASSERT((boost::is_same<typename boost::remove_reference<Left>::type::result_type,
-//                                         typename boost::remove_reference<Right>::type::result_type >::value));
-//     typedef typename boost::remove_reference<Left>::type::result_type  type;
-//   };
-
-//   template<class Left, class Right> inline
-//   typename result<plus_vector( Left,Right)>::type
-//   operator()(Left const& v0, Right const& v1) const
-//   {
-//     std::cout << "ok\n";
-    
-//     typedef typename Left::result_type T;
-//     evaluate_ callee;
-//     T lft = callee(v0);
-//     T rgt = callee(v1);
-
-//     assert(lft.size()==rgt.size());
-//     T res(lft.size());
-//     for(int i = 0; i < lft.size(); ++i)
-//     {
-//       res[i] = lft[i] + rgt[i];
-//       std::cout << res[i];
-//     }
-//     return res;
-//   }
-// };
 
 /*******************************************************************************
  * Evaluator for vector terminals
@@ -86,8 +49,6 @@ struct fetch_vector : boost::proto::callable
 /*******************************************************************************
  * Switch based evaluate_ cases
  ******************************************************************************/
-
-
 struct  evaluate_cases
 {
   // The primary template goes for the _default:
